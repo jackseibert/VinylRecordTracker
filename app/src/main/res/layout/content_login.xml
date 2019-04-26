@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".LoginActivity"
+    tools:showIn="@layout/activity_login">
+
+    <TextView
+        android:id="@+id/tvEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="72dp"
+        android:text="@string/Email"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="144dp"
+        android:text="@string/Password"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/txtEmail"
+        android:layout_width="242dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="40dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="@string/EnterEmail"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/txtPassword"
+        android:layout_width="240dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="136dp"
+        android:layout_marginEnd="40dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="@string/EnterPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnSignUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="88dp"
+        android:layout_marginTop="236dp"
+        android:text="@string/SignUp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnLogIn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="236dp"
+        android:layout_marginEnd="104dp"
+        android:text="@string/LogIn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</android.support.constraint.ConstraintLayout>

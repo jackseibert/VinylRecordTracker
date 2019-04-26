@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "207058535190",
+    "firebase_url": "https://vinylrecordtracker.firebaseio.com",
+    "project_id": "vinylrecordtracker",
+    "storage_bucket": "vinylrecordtracker.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:207058535190:android:216fa73545490da3",
+        "android_client_info": {
+          "package_name": "com.example.vinylrecordtracker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "207058535190-ugrelf2glhcq4sr1qf2s953d1faqv5j9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.vinylrecordtracker",
+            "certificate_hash": "89a00d2258b53e0efcd9d4c34aebe5d41ff77b68"
+          }
+        },
+        {
+          "client_id": "207058535190-8vbs0dhd6h2dnq37ah53c5a8t21vo99u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAlMp9NpwuJIpdyPSTArtDTKgY3Zfis2PQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "207058535190-8vbs0dhd6h2dnq37ah53c5a8t21vo99u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

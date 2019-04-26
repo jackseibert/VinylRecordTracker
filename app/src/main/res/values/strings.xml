@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">Vinyl Record Tracker</string>
+    <string name="action_settings">Settings</string>
+    <string name="OtherNotes">Other Notes:</string>
+    <string name="Price">Price:</string>
+    <string name="DateBought">Date Bought:</string>
+    <string name="Condition">Condition:</string>
+    <string name="AlbumName">Album Name:</string>
+    <string name="Artist">Artist:</string>
+    <string name="EnterArtistName">Enter Artist Name</string>
+    <string name="EnterAlbumName">Enter Album Name</string>
+    <string name="EnterCondition">Enter Condition</string>
+    <string name="EnterDateBought">Enter Date Bought:</string>
+    <string name="EnterPrice">Enter Price:</string>
+    <string name="EnterOtherNotes">Enter Other Notes:</string>
+    <string name="NewAlbum">New Album</string>
+    <string name="AlbumDetails">Album Details</string>
+    <string name="DeleteAlbum">Delete Album</string>
+    <string name="VinylRecordTracker">Vinyl Record Tracker</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="Email">Email:</string>
+    <string name="Password">Password:</string>
+    <string name="EnterEmail">Enter Email Address</string>
+    <string name="EnterPassword">Enter 8+ Character Password</string>
+    <string name="SignUp">Sign Up</string>
+    <string name="LogIn">Log In</string>
+</resources>
