@@ -17,7 +17,7 @@ public class AddVinylActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_vinyl);
+        setContentView(R.layout.activity_add);
 
         // link each editText variable to the xml layout
         txtArtist = (EditText) findViewById(R.id.txtArtist);
@@ -42,7 +42,6 @@ public class AddVinylActivity extends AppCompatActivity {
                 String price = txtPrice.getText().toString();
                 String otherNotes = txtOtherNotes.getText().toString();
                 vinylDataSource.createVinyl(artist, albumName, condition, dateBought, price, otherNotes);
-//                vinylDataSource.createVinyl(species, weight, dateCaught, lattitude.toString(), longiture.toString());
                 Intent mainActIntent = new Intent(view.getContext(), MainActivity.class);
                 finish();
                 startActivity(mainActIntent);

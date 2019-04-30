@@ -26,4 +26,13 @@
     <string name="LogIn">Log In</string>
     <string name="title_activity_add_vinyl">AddVinylActivity</string>
     <string name="title_activity_vinyl_detail">VinylDetailActivity</string>
+    <string name="Back">Back</string>
+    <string name="AddVinyl">Add Vinyl</string>
+    <string name="ArtistName">Artist Name</string>
+    <string name="AlbumTitle">Album Name</string>
+    <string name="AlbumCondition">Condition</string>
+    <string name="Date">Date Bought</string>
+    <string name="AlbumPrice">Price</string>
+    <string name="Other">Other Notes</string>
+    <string name="New">New Album</string>
 </resources>
