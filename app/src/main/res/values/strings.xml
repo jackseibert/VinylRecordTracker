@@ -24,4 +24,6 @@
     <string name="EnterPassword">Enter 8+ Character Password</string>
     <string name="SignUp">Sign Up</string>
     <string name="LogIn">Log In</string>
+    <string name="title_activity_add_vinyl">AddVinylActivity</string>
+    <string name="title_activity_vinyl_detail">VinylDetailActivity</string>
 </resources>

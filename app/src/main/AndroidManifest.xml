@@ -10,9 +10,17 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".VinylDetailActivity"
+            android:label="@string/title_activity_vinyl_detail"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".AddVinylActivity"
+            android:label="@string/title_activity_add_vinyl"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
             android:name=".LoginActivity"
             android:label="@string/title_activity_login"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
