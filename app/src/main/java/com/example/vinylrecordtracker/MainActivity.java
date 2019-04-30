@@ -1,20 +1,16 @@
 package com.example.vinylrecordtracker;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -30,14 +26,14 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
 
-    Button buttonAdd, buttonDetails, buttonDelete;          // two button widgets
-    ListView listViewFish;                                  // listview to display all the fish in the database
-    ArrayAdapter<Fish> fishAdapter;
-    List<Fish> fishList;
-    FishFirebaseData fishDataSource;
-    DatabaseReference myFishDbRef;
+    Button btnNewAlbum, btnAlbumDetails, btnDeleteAlbum;          // two button widgets
+    ListView listViewVinyl;                                  // listview to display all the vinyl in the database
+    ArrayAdapter<Vinyl> vinylAdapter;
+    List<Vinyl> vinylList;
+    VinylFirebaseData vinylDataSource;
+    DatabaseReference myVinylDbRef;
     int positionSelected;
-    Fish fishSelected;
+    Vinyl vinylSelected;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,24 +60,44 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         };
+
+        // Write a message to the database
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference("message");
+
+        myRef.setValue("Hello, World!");
+
+        /*// Read from the database
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // This method is called once with the initial value and again
+                // whenever data at this location is updated.
+                String value = dataSnapshot.getValue(String.class);
+                Log.d(TAG, "Value is: " + value);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                // Failed to read value
+                Log.w(TAG, "Failed to read value.", error.toException());
+            }
+        });*/
+
     }
 
-    // Write a message to the database
-    FirebaseDatabase database = FirebaseDatabase.getInstance();
-    DatabaseReference myRef = database.getReference("message");
-
     private void setupFirebaseDataChange() {
-        fishDataSource = new FishFirebaseData();
-        myFishDbRef = fishDataSource.open();
-        myFishDbRef.addValueEventListener(new ValueEventListener() {
+        vinylDataSource = new VinylFirebaseData();
+        myVinylDbRef = vinylDataSource.open();
+        myVinylDbRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 Log.d("CIS3334", "Starting onDataChange()");        // debugging log
-                fishList = fishDataSource.getAllFish(dataSnapshot);
-                // Instantiate a custom adapter for displaying each fish
-                fishAdapter = new FishAdapter(MainActivity.this, android.R.layout.simple_list_item_single_choice, fishList);
+                vinylList = vinylDataSource.getAllVinyl(dataSnapshot);
+                // Instantiate a custom adapter for displaying each vinyl
+                vinylAdapter = new VinylAdapter(MainActivity.this, android.R.layout.simple_list_item_single_choice, vinylList);
                 // Apply the adapter to the list
-                listViewFish.setAdapter(fishAdapter);
+                listViewVinyl.setAdapter(vinylAdapter);
             }
             @Override
             public void onCancelled(DatabaseError databaseError) {
@@ -91,23 +107,23 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setupListView() {
-        listViewFish = (ListView) findViewById(R.id.ListViewFish);
-        listViewFish.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        listViewVinyl = (ListView) findViewById(R.id.ListViewVinyl);
+        listViewVinyl.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> adapter, View parent,
                                     int position, long id) {
                 positionSelected = position;
-                Log.d("MAIN", "Fish selected at position " + positionSelected);
-            }
-        });
+                Log.d("MAIN", "Vinyl selected at position " + positionSelected);
+    }
+});
     }
 
     private void setupAddButton() {
-        // Set up the button to add a new fish using a seperate activity
-        buttonAdd = (Button) findViewById(R.id.buttonAddFish);
-        buttonAdd.setOnClickListener(new View.OnClickListener() {
+        // Set up the button to add a new vinyl using a seperate activity
+        btnNewAlbum = (Button) findViewById(R.id.btnNewAlbum);
+        btnNewAlbum.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                // Start up the add fish activity with an intent
-                Intent detailActIntent = new Intent(view.getContext(), AddFishActivity.class);
+                // Start up the add vinyl activity with an intent
+                Intent detailActIntent = new Intent(view.getContext(), AddVinylActivity.class);
                 finish();
                 startActivity(detailActIntent);
             }
@@ -115,13 +131,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setupDetailButton() {
-        // Set up the button to display details on one fish using a seperate activity
-        buttonDetails = (Button) findViewById(R.id.buttonDetails);
-        buttonDetails.setOnClickListener(new View.OnClickListener() {
+        // Set up the button to display details on one vinyl using a seperate activity
+        btnAlbumDetails = (Button) findViewById(R.id.btnAlbumDetails);
+        btnAlbumDetails.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Log.d("MAIN", "onClick for Details");
-                Intent detailActIntent = new Intent(view.getContext(), DetailActivity.class);
-                detailActIntent.putExtra("Fish", fishList.get(positionSelected));
+                Intent detailActIntent = new Intent(view.getContext(), VinylDetailActivity.class);
+                detailActIntent.putExtra("Vinyl", vinylList.get(positionSelected));
                 finish();
                 startActivity(detailActIntent);
             }
@@ -129,15 +145,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setupDeleteButton() {
-        // Set up the button to display details on one fish using a seperate activity
-        buttonDelete = (Button) findViewById(R.id.buttonDelete);
-        buttonDelete.setOnClickListener(new View.OnClickListener() {
+        // Set up the button to display details on one vinyl using a seperate activity
+        btnDeleteAlbum = (Button) findViewById(R.id.btnDeleteAlbum);
+        btnDeleteAlbum.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Log.d("MAIN", "onClick for Delete");
                 Log.d("MAIN", "Delete at position " + positionSelected);
-                fishDataSource.deleteFish(fishList.get(positionSelected));
-                fishAdapter.remove( fishList.get(positionSelected) );
-                fishAdapter.notifyDataSetChanged();
+                vinylDataSource.deleteVinyl(vinylList.get(positionSelected));
+                vinylAdapter.remove( vinylList.get(positionSelected) );
+                vinylAdapter.notifyDataSetChanged();
             }
         });
     }

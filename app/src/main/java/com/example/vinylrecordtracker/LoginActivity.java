@@ -17,8 +17,8 @@ public class LoginActivity extends AppCompatActivity {
 
     Button btnLogin;
     Button btnCreate;
-    EditText etEmail;
-    EditText etPassword;
+    EditText txtEmail;
+    EditText txtPassword;
 
     private FirebaseAuth mAuth;
 
@@ -29,20 +29,20 @@ public class LoginActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         btnLogin = findViewById(R.id.btnLogin);
         btnCreate = findViewById(R.id.btnCreate);
-        etEmail = findViewById(R.id.txtEmail);
-        etPassword = findViewById(R.id.txtPassword);
+        txtEmail = findViewById(R.id.txtEmail);
+        txtPassword = findViewById(R.id.txtPassword);
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                signIn(etEmail.getText().toString(), etPassword.getText().toString());
+                signIn(txtEmail.getText().toString(), txtPassword.getText().toString());
             }
         });
 
         btnCreate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                createAccount(etEmail.getText().toString(), etPassword.getText().toString());
+                createAccount(txtEmail.getText().toString(), txtPassword.getText().toString());
             }
         });
     }

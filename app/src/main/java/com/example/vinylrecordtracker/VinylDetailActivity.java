@@ -10,31 +10,35 @@ import android.widget.EditText;
 public class VinylDetailActivity extends AppCompatActivity {
 
 
-    Button buttonBack;
-    EditText editTextSpecies, editTextWeight, editTextDate, editTextLocation;
+    Button btnBack;
+    EditText txtArtist, txtAlbumName, txtCondition, txtDateBought, txtPrice, txtOtherNotes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_detail);
+        setContentView(R.layout.activity_vinyl_detail);
 
         Bundle bundle = getIntent().getExtras();
-        Fish fish = (Fish)   bundle.getSerializable("Fish");
+        Vinyl vinyl = (Vinyl)   bundle.getSerializable("Vinyl");
 
         // link each editText variable to the xml layout
-        editTextSpecies = (EditText) findViewById(R.id.editTextSpecies);
-        editTextWeight = (EditText) findViewById(R.id.editTextWeight);
-        editTextDate = (EditText) findViewById(R.id.editTextDate);
-        editTextLocation = (EditText) findViewById(R.id.editTextLocation);
+        txtArtist = (EditText) findViewById(R.id.txtArtist);
+        txtAlbumName = (EditText) findViewById(R.id.txtAlbumName);
+        txtCondition = (EditText) findViewById(R.id.txtCondition);
+        txtDateBought = (EditText) findViewById(R.id.txtDateBought);
+        txtPrice = (EditText) findViewById(R.id.txtPrice);
+        txtOtherNotes = (EditText) findViewById(R.id.txtOtherNotes);
 
-        editTextSpecies.setText(fish.getSpecies());
-        editTextWeight.setText(fish.getWeightInOz());
-        editTextDate.setText(fish.getDateCaught());
-        editTextLocation.setText(fish.getLocationCaughtLatitude() + " x " + fish.getLocationCaughtLongitude());
+        txtArtist.setText(vinyl.getArtist());
+        txtAlbumName.setText(vinyl.getAlbumName());
+        txtCondition.setText(vinyl.getCondition());
+        txtDateBought.setText(vinyl.getDateBought());
+        txtPrice.setText(vinyl.getPrice());
+        txtOtherNotes.setText(vinyl.getOtherNotes());
 
         // set up the button listener
-        buttonBack = (Button) findViewById(R.id.buttonReturn);
-        buttonBack.setOnClickListener(new View.OnClickListener() {
+        btnBack = (Button) findViewById(R.id.btnBack);
+        btnBack.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Intent mainActIntent = new Intent(view.getContext(), MainActivity.class);
                 finish();

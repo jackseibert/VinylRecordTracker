@@ -7,59 +7,56 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by tgibbons on 4/24/2018.
- */
 
 public class VinylFirebaseData {
-    DatabaseReference myFishDbRef;
-    public static final String FishDataTag = "Fish Data";
+    DatabaseReference myVinylDbRef;
+    public static final String VinylDataTag = "Vinyl Data";
 
     public DatabaseReference open() {
         // Write a message to the database
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        myFishDbRef = database.getReference(FishDataTag);
-        return myFishDbRef;
+        myVinylDbRef = database.getReference(VinylDataTag);
+        return myVinylDbRef;
     }
 
     public void close() {
 
     }
 
-    public Fish createFish( String species, String weightInOz, String dateCaught) {           //Added String rating as a parameter
+    public Vinyl createVinyl(String artist, String albumName, String condition, String dateBought, String price, String otherNotes) {           //Added String rating as a parameter
         // ---- Get a new database key for the vote
-        String key = myFishDbRef.child(FishDataTag).push().getKey();
+        String key = myVinylDbRef.child(VinylDataTag).push().getKey();
         //String key = "REPLACE THIS WITH KEY FROM DATABASE";
-        // ---- set up the fish object
-        Fish newFish = new Fish(key, species, weightInOz, dateCaught);
+        // ---- set up the vinyl object
+        Vinyl newVinyl = new Vinyl(key, artist, albumName, condition, dateBought, price, otherNotes);
         // ---- write the vote to Firebase
-        myFishDbRef.child(key).setValue(newFish);
-        return newFish;
+        myVinylDbRef.child(key).setValue(newVinyl);
+        return newVinyl;
     }
 
-    public Fish createFish( String species, String weightInOz, String dateCaught, String locationLatitude, String locationLongitude) {           //Added String rating as a parameter
+    public Vinyl createVinyl(String artist, String albumName, String condition, String dateBought, String price, String otherNotes) {           //Added String rating as a parameter
         // ---- Get a new database key for the vote
-        String key = myFishDbRef.child(FishDataTag).push().getKey();
+        String key = myVinylDbRef.child(VinylDataTag).push().getKey();
         //String key = "REPLACE THIS WITH KEY FROM DATABASE";
-        // ---- set up the fish object
-        Fish newFish = new Fish(key, species, weightInOz, dateCaught, locationLatitude,locationLongitude);
+        // ---- set up the vinyl object
+        Vinyl newVinyl = new Vinyl(key, artist, albumName, condition, dateBought, price, otherNotes);
         // ---- write the vote to Firebase
-        myFishDbRef.child(key).setValue(newFish);
-        return newFish;
+        myVinylDbRef.child(key).setValue(newVinyl);
+        return newVinyl;
     }
 
-    public void deleteFish(Fish fish) {
-        String key = fish.getKey();
-        myFishDbRef.child(key).removeValue();
+    public void deleteVinyl(Vinyl vinyl) {
+        String key = vinyl.getKey();
+        myVinylDbRef.child(key).removeValue();
     }
 
-    public List<Fish> getAllFish(DataSnapshot dataSnapshot) {
-        List<Fish> fishList = new ArrayList<Fish>();
+    public List<Vinyl> getAllVinyl(DataSnapshot dataSnapshot) {
+        List<Vinyl> vinylList = new ArrayList<Vinyl>();
         for (DataSnapshot data : dataSnapshot.getChildren()) {
-            Fish fish = data.getValue(Fish.class);
-            fishList.add(fish);
+            Vinyl vinyl = data.getValue(Vinyl.class);
+            vinylList.add(vinyl);
         }
-        return fishList;
+        return vinylList;
     }
 
 }

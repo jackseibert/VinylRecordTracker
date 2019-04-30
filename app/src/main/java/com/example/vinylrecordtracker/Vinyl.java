@@ -2,102 +2,84 @@ package com.example.vinylrecordtracker;
 
 import java.io.Serializable;
 
-/**
- * Created by tgibbons on 4/24/2018.
- */
-
 
 public class Vinyl implements Serializable {
-    private String key;
-    private String species;
-    private String weightInOz;
-    private String dateCaught;
-    private String locationCaughtLatitude;
-    private String locationCaughtLongitude;
+    private String artist;
+    private String albumName;
+    private String condition;
+    private String dateBought;
+    private String price;
+    private String otherNotes;
 
-    public Fish() {
+    public Vinyl() {
     }
 
-    public Fish(String key, String species, String weightInOz, String dateCaught, String locationCaughtLatitude, String locationCaughtLongitude) {
-        this.key = key;
-        this.species = species;
-        this.weightInOz = weightInOz;
-        this.dateCaught = dateCaught;
-        this.locationCaughtLatitude = locationCaughtLatitude;
-        this.locationCaughtLongitude = locationCaughtLongitude;
+    public Vinyl(String artist, String albumName, String condition, String dateBought, String price, String otherNotes) {
+        this.artist = artist;
+        this.albumName = albumName;
+        this.condition = condition;
+        this.dateBought = dateBought;
+        this.price = price;
+        this.otherNotes = otherNotes;
     }
 
-    public Fish(String species, String weightInOz, String dateCaught, String locationCaughtLatitude, String locationCaughtLongitude) {
-        this.species = species;
-        this.weightInOz = weightInOz;
-        this.dateCaught = dateCaught;
-        this.locationCaughtLatitude = locationCaughtLatitude;
-        this.locationCaughtLongitude = locationCaughtLongitude;
+    public String getArtist() {
+        return artist;
     }
 
-    public Fish(String key, String species, String weightInOz, String dateCaught) {
-        this.key = key;
-        this.species = species;
-        this.weightInOz = weightInOz;
-        this.dateCaught = dateCaught;
-        this.locationCaughtLatitude = locationCaughtLatitude;
-        this.locationCaughtLongitude = locationCaughtLongitude;
+    public void setArtist(String artist) {
+        this.artist = artist;
     }
 
-    public String getKey() {
-        return key;
+    public String getAlbumName() {
+        return albumName;
     }
 
-    public void setKey(String key) {
-        this.key = key;
+    public void setAlbumName(String albumName) {
+        this.albumName = albumName;
     }
 
-    public String getSpecies() {
-        return species;
+    public String getCondition() {
+        return condition;
     }
 
-    public void setSpecies(String species) {
-        this.species = species;
+    public void setCondition(String condition) {
+        this.condition = condition;
     }
 
-    public String getWeightInOz() {
-        return weightInOz;
+    public String getDateBought() {
+        return dateBought;
     }
 
-    public void setWeightInOz(String weightInOz) {
-        this.weightInOz = weightInOz;
+    public void setDateBought(String dateBought) {
+        this.dateBought = dateBought;
     }
 
-    public String getDateCaught() {
-        return dateCaught;
+    public String getPrice() {
+        return price;
     }
 
-    public void setDateCaught(String dateCaught) {
-        this.dateCaught = dateCaught;
+    public void setPrice(String price) {
+        this.price = price;
     }
 
-    public String getLocationCaughtLatitude() {
-        return locationCaughtLatitude;
+    public String getOtherNotes() {
+        return otherNotes;
     }
 
-    public void setLocationCaughtLatitude(String locationCaughtLatitude) {
-        this.locationCaughtLatitude = locationCaughtLatitude;
-    }
-
-    public String getLocationCaughtLongitude() {
-        return locationCaughtLongitude;
-    }
-
-    public void setLocationCaughtLongitude(String locationCaughtLongitude) {
-        this.locationCaughtLongitude = locationCaughtLongitude;
+    public void setOtherNotes(String otherNotes) {
+        this.otherNotes = otherNotes;
     }
 
     @Override
     public String toString() {
-        return "Fish{" +
-                "species='" + species + '\'' +
-                ", weightInOz='" + weightInOz + '\'' +
-                ", dateCaught='" + dateCaught + '\'' +
+        return "Vinyl{" +
+                "artist='" + artist + '\'' +
+                ", albumName='" + albumName + '\'' +
+                ", condition='" + condition + '\'' +
+                ", dateBought='" + dateBought + '\'' +
+                ", price='" + price + '\'' +
+                ", otherNotes='" + otherNotes + '\'' +
                 '}';
     }
 }

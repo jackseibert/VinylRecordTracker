@@ -7,43 +7,42 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-public class AddFishActivity extends AppCompatActivity {
+public class AddVinylActivity extends AppCompatActivity {
 
-    Button buttonSave;
-    EditText editTextSpecies, editTextWeight, editTextDate;
-    Double lattitude, longiture;
-    FishFirebaseData fishDataSource;
+    Button btnSave;
+    EditText txtArtist, txtAlbumName, txtCondition, txtDateBought, txtPrice, txtOtherNotes;
+    //Double lattitude, longiture;
+    VinylFirebaseData vinylDataSource;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_fish);
+        setContentView(R.layout.activity_add_vinyl);
 
         // link each editText variable to the xml layout
-        editTextSpecies = (EditText) findViewById(R.id.editTextSpecies);
-        editTextWeight = (EditText) findViewById(R.id.editTextWeight);
-        editTextDate = (EditText) findViewById(R.id.editTextDate);
+        txtArtist = (EditText) findViewById(R.id.txtArtist);
+        txtAlbumName = (EditText) findViewById(R.id.txtAlbumName);
+        txtCondition = (EditText) findViewById(R.id.txtCondition);
+        txtDateBought = (EditText) findViewById(R.id.txtDateBought);
+        txtPrice = (EditText) findViewById(R.id.txtPrice);
+        txtOtherNotes = (EditText) findViewById(R.id.txtOtherNotes);
 
-        fishDataSource = new FishFirebaseData();
-        fishDataSource.open();
-
-        // get the current location of the phone
-//        LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-//        Criteria criteria = new Criteria();
-//        Location location = locationManager.getLastKnownLocation(locationManager.getBestProvider(criteria, false));
-//        lattitude = location.getLatitude();
-//        longiture = location.getLongitude();
+        vinylDataSource = new VinylFirebaseData();
+        vinylDataSource.open();
 
         // set up the button listener
-        buttonSave = (Button) findViewById(R.id.buttonSave);
-        buttonSave.setOnClickListener(new View.OnClickListener() {
+        btnSave = (Button) findViewById(R.id.btnSave);
+        btnSave.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                // Add the fish to the database
-                String species = editTextSpecies.getText().toString();
-                String weight = editTextWeight.getText().toString();
-                String dateCaught = editTextDate.getText().toString();
-                fishDataSource.createFish(species, weight, dateCaught);
-//                fishDataSource.createFish(species, weight, dateCaught, lattitude.toString(), longiture.toString());
+                // Add the vinyl to the database
+                String artist = txtArtist.getText().toString();
+                String albumName = txtAlbumName.getText().toString();
+                String condition = txtCondition.getText().toString();
+                String dateBought = txtDateBought.getText().toString();
+                String price = txtPrice.getText().toString();
+                String otherNotes = txtOtherNotes.getText().toString();
+                vinylDataSource.createVinyl(artist, albumName, condition, dateBought, price, otherNotes);
+//                vinylDataSource.createVinyl(species, weight, dateCaught, lattitude.toString(), longiture.toString());
                 Intent mainActIntent = new Intent(view.getContext(), MainActivity.class);
                 finish();
                 startActivity(mainActIntent);

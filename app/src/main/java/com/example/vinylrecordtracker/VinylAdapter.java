@@ -10,14 +10,10 @@ import android.widget.TextView;
 
 import java.util.List;
 
-/**
- * Created by tgibbons on 4/24/2018.
- */
 
+public class VinylAdapter extends ArrayAdapter<Vinyl> {
 
-public class VinylAdapter extends ArrayAdapter<Fish> {
-
-    private List<Fish> fishList;            // The list of fish to display
+    private List<Vinyl> vinylList;            // The list of vinyl to display
     private Context context;                // The original activity that displays this
     private int layoutResource;                   // the layout to use
 
@@ -25,31 +21,38 @@ public class VinylAdapter extends ArrayAdapter<Fish> {
      *   Basic constructor
      * @param context - The activity calling this
      * @param resource  The layout to use to display
-     * @param fishList  The list of fish to display
+     * @param vinylList  The list of vinyl to display
      */
-    public FishAdapter(Context context, int resource, List<Fish> fishList) {
-        super(context, resource, fishList);
+    public VinylAdapter(Context context, int resource, List<Vinyl> vinylList) {
+        super(context, resource, vinylList);
         this.context = context;
         this.layoutResource = resource;
-        this.fishList = fishList;
+        this.vinylList = vinylList;
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        //get the fish we are displaying
-        Fish fish = fishList.get(position);
+        //get the vinyl we are displaying
+        Vinyl vinyl = vinylList.get(position);
         View view;
 
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
-        //view = inflater.inflate(R.layout.fish_row_layout, null);
-        view = inflater.inflate(R.layout.fish_row_layout, null);
+        //view = inflater.inflate(R.layout.vinyl_row_layout, null);
+        view = inflater.inflate(R.layout.vinyl_row_layout, null);
 
-        TextView tvSpecies=(TextView)view.findViewById(R.id.textViewSpecies);
-        TextView tvWeight=(TextView)view.findViewById(R.id.textViewWeight);
-        TextView tvDate=(TextView)view.findViewById(R.id.textViewDate);
-        tvSpecies.setText(fish.getSpecies());
-        tvWeight.setText(fish.getWeightInOz());
-        tvDate.setText(fish.getDateCaught());
+        TextView txtArtist=(TextView)view.findViewById(R.id.txtArtist);
+        TextView txtAlbumName=(TextView)view.findViewById(R.id.txtAlbumName);
+        TextView txtCondition=(TextView)view.findViewById(R.id.txtCondition);
+        TextView txtDateBought=(TextView)view.findViewById(R.id.txtDateBought);
+        TextView txtPrice=(TextView)view.findViewById(R.id.txtPrice);
+        TextView txtOtherNotes=(TextView)view.findViewById(R.id.txtOtherNotes);
+
+        txtArtist.setText(vinyl.getArtist());
+        txtAlbumName.setText(vinyl.getAlbumName());
+        txtCondition.setText(vinyl.getCondition());
+        txtDateBought.setText(vinyl.getDateBought());
+        txtPrice.setText(vinyl.getPrice());
+        txtOtherNotes.setText(vinyl.getOtherNotes());
 
         return(view);
     }
