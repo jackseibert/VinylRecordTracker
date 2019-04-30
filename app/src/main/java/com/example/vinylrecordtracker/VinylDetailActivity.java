@@ -1,29 +1,46 @@
 package com.example.vinylrecordtracker;
 
-import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 
 public class VinylDetailActivity extends AppCompatActivity {
+
+
+    Button buttonBack;
+    EditText editTextSpecies, editTextWeight, editTextDate, editTextLocation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_vinyl_detail);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        setContentView(R.layout.activity_detail);
 
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
+        Bundle bundle = getIntent().getExtras();
+        Fish fish = (Fish)   bundle.getSerializable("Fish");
+
+        // link each editText variable to the xml layout
+        editTextSpecies = (EditText) findViewById(R.id.editTextSpecies);
+        editTextWeight = (EditText) findViewById(R.id.editTextWeight);
+        editTextDate = (EditText) findViewById(R.id.editTextDate);
+        editTextLocation = (EditText) findViewById(R.id.editTextLocation);
+
+        editTextSpecies.setText(fish.getSpecies());
+        editTextWeight.setText(fish.getWeightInOz());
+        editTextDate.setText(fish.getDateCaught());
+        editTextLocation.setText(fish.getLocationCaughtLatitude() + " x " + fish.getLocationCaughtLongitude());
+
+        // set up the button listener
+        buttonBack = (Button) findViewById(R.id.buttonReturn);
+        buttonBack.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Intent mainActIntent = new Intent(view.getContext(), MainActivity.class);
+                finish();
+                startActivity(mainActIntent);
             }
         });
-    }
 
+    }
 }
