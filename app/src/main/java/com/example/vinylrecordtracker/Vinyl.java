@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 
 public class Vinyl implements Serializable {
+    private String key;
     private String artist;
     private String albumName;
     private String condition;
@@ -15,7 +16,8 @@ public class Vinyl implements Serializable {
     }
 
     //Constructor for Vinyl variables
-    public Vinyl(String artist, String albumName, String condition, String dateBought, String price, String otherNotes) {
+    public Vinyl(String key, String artist, String albumName, String condition, String dateBought, String price, String otherNotes) {
+        this.key = key;
         this.artist = artist;
         this.albumName = albumName;
         this.condition = condition;
@@ -23,7 +25,12 @@ public class Vinyl implements Serializable {
         this.price = price;
         this.otherNotes = otherNotes;
     }
+
     //Get and Set methods for all String variables.
+    public String getKey() { return key; }
+
+    public void setKey(String key) { this.key = key; }
+
     public String getArtist() {
         return artist;
     }

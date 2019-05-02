@@ -28,7 +28,7 @@ public class VinylFirebaseData {
         String key = myVinylDbRef.child(VinylDataTag).push().getKey();
         //String key = "REPLACE THIS WITH KEY FROM DATABASE";
         // ---- set up the vinyl object
-        Vinyl newVinyl = new Vinyl(artist, albumName, condition, dateBought, price, otherNotes);
+        Vinyl newVinyl = new Vinyl(key, artist, albumName, condition, dateBought, price, otherNotes);
         // ---- write the vote to Firebase
         myVinylDbRef.child(key).setValue(newVinyl);
         return newVinyl;
