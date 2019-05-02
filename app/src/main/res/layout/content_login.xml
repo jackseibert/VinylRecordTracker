@@ -51,22 +51,28 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/btnSignUp"
-        android:layout_width="152dp"
+        android:id="@+id/btnLogIn"
+        android:layout_width="115dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="56dp"
-        android:layout_marginTop="236dp"
-        android:text="@string/SignUp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="216dp"
+        android:layout_marginEnd="48dp"
+        android:text="@string/LogIn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.845"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/btnLogIn"
-        android:layout_width="155dp"
+        android:id="@+id/btnSignUp"
+        android:layout_width="110dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="236dp"
-        android:layout_marginEnd="48dp"
-        android:text="@string/LogIn"
+        android:layout_marginStart="76dp"
+        android:layout_marginTop="216dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/SignUp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.064"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </android.support.constraint.ConstraintLayout>

@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
 
-    Button btnNewAlbum, btnAlbumDetails, btnDeleteAlbum;          // two button widgets
+    Button btnNewAlbum, btnAlbumDetails, btnDeleteAlbum, btnSignOut;          // two button widgets
     ListView listViewVinyl;                                  // listview to display all the vinyl in the database
     ArrayAdapter<Vinyl> vinylAdapter;
     List<Vinyl> vinylList;
@@ -40,11 +40,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //FirebaseAuth.getInstance().signOut();
+
         setupFirebaseDataChange();
         setupListView();
         setupAddButton();
         setupDetailButton();
         setupDeleteButton();
+        setupSignOutButton();
 
         mAuthListener = new FirebaseAuth.AuthStateListener() { //initialized mAuthListener
             @Override
@@ -130,6 +133,16 @@ public class MainActivity extends AppCompatActivity {
                 vinylDataSource.deleteVinyl(vinylList.get(positionSelected));
                 vinylAdapter.remove( vinylList.get(positionSelected) );
                 vinylAdapter.notifyDataSetChanged();
+            }
+        });
+    }
+
+    private void setupSignOutButton() {
+        // Set up the button to display details on one vinyl using a separate activity
+        btnSignOut = (Button) findViewById(R.id.btnSignOut);
+        btnSignOut.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                FirebaseAuth.getInstance().signOut();
             }
         });
     }

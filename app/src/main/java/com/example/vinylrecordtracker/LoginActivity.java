@@ -33,14 +33,14 @@ public class LoginActivity extends AppCompatActivity {
         txtEmail = findViewById(R.id.txtEmail);
         txtPassword = findViewById(R.id.txtPassword);
 
-        btnSignUp.setOnClickListener(new View.OnClickListener() {
+        btnLogIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 signIn(txtEmail.getText().toString(), txtPassword.getText().toString());
             }
         });
 
-        btnLogIn.setOnClickListener(new View.OnClickListener() {
+        btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 createAccount(txtEmail.getText().toString(), txtPassword.getText().toString());
