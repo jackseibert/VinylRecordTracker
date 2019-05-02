@@ -22,6 +22,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
 
+    //onCreate method for the Login Activity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,7 +56,7 @@ public class LoginActivity extends AppCompatActivity {
                 if (!task.isSuccessful()) { //when failed
                     Toast.makeText(LoginActivity.this, "SignIn--Authentication failed.", Toast.LENGTH_LONG).show();
                 } else {
-                    //return to MainActivity is login works
+                    //return to MainActivity if login works
                     finish();
                 }
             }
@@ -70,7 +71,7 @@ public class LoginActivity extends AppCompatActivity {
                 if (!task.isSuccessful()) { //when failed
                     Toast.makeText(LoginActivity.this, "createAccount--Authentication failed.",Toast.LENGTH_LONG).show();
                 } else {
-                    //return to MainActivity is login works
+                    //return to MainActivity if login works
                     finish();
                 }
             }

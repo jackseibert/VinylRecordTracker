@@ -94,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setupAddButton() {
-        // Set up the button to add a new vinyl using a seperate activity
+        // Set up the button to add a new vinyl using a separate activity
         btnNewAlbum = (Button) findViewById(R.id.btnNewAlbum);
         btnNewAlbum.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
@@ -107,7 +107,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setupDetailButton() {
-        // Set up the button to display details on one vinyl using a seperate activity
+        // Set up the button to display details on one vinyl using a separate activity
         btnAlbumDetails = (Button) findViewById(R.id.btnAlbumDetails);
         btnAlbumDetails.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
@@ -121,7 +121,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setupDeleteButton() {
-        // Set up the button to display details on one vinyl using a seperate activity
+        // Set up the button to display details on one vinyl using a separate activity
         btnDeleteAlbum = (Button) findViewById(R.id.btnDeleteAlbum);
         btnDeleteAlbum.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {

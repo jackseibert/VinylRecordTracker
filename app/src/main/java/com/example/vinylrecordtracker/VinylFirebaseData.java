@@ -28,18 +28,7 @@ public class VinylFirebaseData {
         String key = myVinylDbRef.child(VinylDataTag).push().getKey();
         //String key = "REPLACE THIS WITH KEY FROM DATABASE";
         // ---- set up the vinyl object
-        Vinyl newVinyl = new Vinyl(key, artist, albumName, condition, dateBought, price, otherNotes);
-        // ---- write the vote to Firebase
-        myVinylDbRef.child(key).setValue(newVinyl);
-        return newVinyl;
-    }
-
-    public Vinyl createVinyl(String artist, String albumName, String condition, String dateBought, String price, String otherNotes) {           //Added String rating as a parameter
-        // ---- Get a new database key for the vote
-        String key = myVinylDbRef.child(VinylDataTag).push().getKey();
-        //String key = "REPLACE THIS WITH KEY FROM DATABASE";
-        // ---- set up the vinyl object
-        Vinyl newVinyl = new Vinyl(key, artist, albumName, condition, dateBought, price, otherNotes);
+        Vinyl newVinyl = new Vinyl(artist, albumName, condition, dateBought, price, otherNotes);
         // ---- write the vote to Firebase
         myVinylDbRef.child(key).setValue(newVinyl);
         return newVinyl;

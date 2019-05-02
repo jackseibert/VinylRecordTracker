@@ -11,7 +11,6 @@ public class AddVinylActivity extends AppCompatActivity {
 
     Button btnSave;
     EditText txtArtist, txtAlbumName, txtCondition, txtDateBought, txtPrice, txtOtherNotes;
-    //Double lattitude, longiture;
     VinylFirebaseData vinylDataSource;
 
     @Override

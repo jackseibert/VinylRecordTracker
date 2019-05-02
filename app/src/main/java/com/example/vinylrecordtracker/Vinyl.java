@@ -14,6 +14,7 @@ public class Vinyl implements Serializable {
     public Vinyl() {
     }
 
+    //Constructor for Vinyl variables
     public Vinyl(String artist, String albumName, String condition, String dateBought, String price, String otherNotes) {
         this.artist = artist;
         this.albumName = albumName;
@@ -22,7 +23,7 @@ public class Vinyl implements Serializable {
         this.price = price;
         this.otherNotes = otherNotes;
     }
-
+    //Get and Set methods for all String variables.
     public String getArtist() {
         return artist;
     }
@@ -82,4 +83,5 @@ public class Vinyl implements Serializable {
                 ", otherNotes='" + otherNotes + '\'' +
                 '}';
     }
+
 }
