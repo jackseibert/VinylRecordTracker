@@ -16,7 +16,7 @@ public class VinylDetailActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_detail);
 
         Bundle bundle = getIntent().getExtras();
         Vinyl vinyl = (Vinyl)   bundle.getSerializable("Vinyl");
