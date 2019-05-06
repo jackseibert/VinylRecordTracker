@@ -10,7 +10,6 @@ import android.widget.TextView;
 
 import java.util.List;
 
-
 public class VinylAdapter extends ArrayAdapter<Vinyl> {
 
     private List<Vinyl> vinylList;            // The list of vinyl to display

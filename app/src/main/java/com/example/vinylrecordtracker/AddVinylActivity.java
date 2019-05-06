@@ -18,7 +18,7 @@ public class AddVinylActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add);
 
-        // link each editText variable to the xml layout
+        // links each editText variable to the xml layout
         txtArtist = (EditText) findViewById(R.id.txtArtist);
         txtAlbumName = (EditText) findViewById(R.id.txtAlbumName);
         txtCondition = (EditText) findViewById(R.id.txtCondition);
@@ -29,7 +29,7 @@ public class AddVinylActivity extends AppCompatActivity {
         vinylDataSource = new VinylFirebaseData();
         vinylDataSource.open();
 
-        // set up the button listener
+        // sets up the button listener
         btnSave = (Button) findViewById(R.id.btnSave);
         btnSave.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {

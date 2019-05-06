@@ -2,7 +2,6 @@ package com.example.vinylrecordtracker;
 
 import java.io.Serializable;
 
-
 public class Vinyl implements Serializable {
     private String key;
     private String artist;

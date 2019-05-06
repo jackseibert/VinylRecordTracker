@@ -20,7 +20,6 @@ public class VinylFirebaseData {
     }
 
     public void close() {
-
     }
 
     public Vinyl createVinyl(String artist, String albumName, String condition, String dateBought, String price, String otherNotes) {           //Added String rating as a parameter

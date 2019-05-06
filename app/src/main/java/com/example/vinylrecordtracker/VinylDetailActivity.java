@@ -9,7 +9,6 @@ import android.widget.EditText;
 
 public class VinylDetailActivity extends AppCompatActivity {
 
-
     Button btnBack;
     EditText txtArtist, txtAlbumName, txtCondition, txtDateBought, txtPrice, txtOtherNotes;
 
@@ -21,7 +20,7 @@ public class VinylDetailActivity extends AppCompatActivity {
         Bundle bundle = getIntent().getExtras();
         Vinyl vinyl = (Vinyl)   bundle.getSerializable("Vinyl");
 
-        // link each editText variable to the xml layout
+        // links each editText variable to the xml layout
         txtArtist = (EditText) findViewById(R.id.txtArtist);
         txtAlbumName = (EditText) findViewById(R.id.txtAlbumName);
         txtCondition = (EditText) findViewById(R.id.txtCondition);
@@ -36,7 +35,7 @@ public class VinylDetailActivity extends AppCompatActivity {
         txtPrice.setText(vinyl.getPrice());
         txtOtherNotes.setText(vinyl.getOtherNotes());
 
-        // set up the button listener
+        // sets up the button listener
         btnBack = (Button) findViewById(R.id.btnBack);
         btnBack.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
