@@ -20,36 +20,32 @@
         android:id="@+id/btnNewAlbum"
         android:layout_width="116dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="172dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="156dp"
         android:text="@string/New"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.028"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toStartOf="@+id/btnAlbumDetails" />
 
     <Button
         android:id="@+id/btnAlbumDetails"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="140dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="172dp"
+        android:layout_marginBottom="156dp"
         android:text="@string/AlbumDetails"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toStartOf="@+id/btnDeleteAlbum" />
 
     <Button
         android:id="@+id/btnDeleteAlbum"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="276dp"
-        android:layout_marginBottom="172dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="156dp"
         android:text="@string/DeleteAlbum"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ListView
@@ -58,6 +54,8 @@
         android:layout_height="464dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="44dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -77,10 +75,16 @@
         android:id="@+id/btnSignOut"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="84dp"
-        android:layout_marginBottom="112dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
         android:text="@string/SignOut"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnAlbumDetails"
+        app:layout_constraintVertical_bias="0.009" />
 
 </android.support.constraint.ConstraintLayout>
