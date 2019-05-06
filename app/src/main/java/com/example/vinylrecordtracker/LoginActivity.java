@@ -21,7 +21,9 @@ public class LoginActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
 
-    //onCreate method for the Login Activity
+    /**
+     * onCreate method for the Login Activity
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +42,9 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * signIn method for the Login Activity
+     */
     private void signIn(String email, String password){
         //sign in the recurrent user with email and password previously created.
         mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() { //add to listener
@@ -55,18 +60,4 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-    private void createAccount(String email, String password) {
-        //create account for new users
-        mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {  //update listener.
-                if (!task.isSuccessful()) { //when failed
-                    Toast.makeText(LoginActivity.this, "createAccount--Authentication failed.",Toast.LENGTH_LONG).show();
-                } else {
-                    //return to MainActivity if login works
-                    finish();
-                }
-            }
-        });
-    }
 }

@@ -20,6 +20,13 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.List;
 
+/**
+ * Created By: Jack Seibert
+ * Created For: CIS 3334 Final Project
+ * Last Modified: 5-6-2019
+ */
+
+
 public class MainActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
@@ -34,6 +41,9 @@ public class MainActivity extends AppCompatActivity {
     int positionSelected;
     Vinyl vinylSelected;
 
+    /**
+     * onCreate method for the Main Activity
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         mAuth = FirebaseAuth.getInstance(); //declare object for Firebase
@@ -65,6 +75,9 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Set Up method for FirebaseDataChange
+     */
     private void setupFirebaseDataChange() {
         vinylDataSource = new VinylFirebaseData();
         myVinylDbRef = vinylDataSource.open();
@@ -85,6 +98,9 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Set Up method for ListView
+     */
     private void setupListView() {
         listViewVinyl = (ListView) findViewById(R.id.ListViewVinyl);
         listViewVinyl.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -96,6 +112,9 @@ public class MainActivity extends AppCompatActivity {
 });
     }
 
+    /**
+     * Set Up method for AddButton
+     */
     private void setupAddButton() {
         // Set up the button to add a new vinyl using a separate activity
         btnNewAlbum = (Button) findViewById(R.id.btnNewAlbum);
@@ -109,6 +128,9 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Set Up method for DetailButton
+     */
     private void setupDetailButton() {
         // Set up the button to display details on one vinyl using a separate activity
         btnAlbumDetails = (Button) findViewById(R.id.btnAlbumDetails);
@@ -123,6 +145,9 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Set Up method for DeleteButton
+     */
     private void setupDeleteButton() {
         // Set up the button to display details on one vinyl using a separate activity
         btnDeleteAlbum = (Button) findViewById(R.id.btnDeleteAlbum);
@@ -137,6 +162,9 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Set Up method for SignOutButton
+     */
     private void setupSignOutButton() {
         // Set up the button to display details on one vinyl using a separate activity
         btnSignOut = (Button) findViewById(R.id.btnSignOut);

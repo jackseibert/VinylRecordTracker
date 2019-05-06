@@ -11,6 +11,7 @@ public class Vinyl implements Serializable {
     private String price;
     private String otherNotes;
 
+    //This blank constructor needs to be here for the project to run correctly
     public Vinyl() {
     }
 
